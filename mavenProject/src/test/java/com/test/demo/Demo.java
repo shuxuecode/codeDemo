@@ -11,6 +11,8 @@ import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.NullStr
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @date 2022/3/18
@@ -51,19 +53,18 @@ public class Demo {
 
     @DisplayName("方法参数类型测试")
     @ParameterizedTest
-    @MethodSource({"getList"})
-    void t4(List<Integer> list){
-        Assertions.assertArrayEquals(list, getList());
+    @MethodSource("getStream")
+    void t4(String str) {
+        System.out.println(str);
     }
 
-    List<Integer> getList(){
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        return list;
+    static Stream<String> getStream() {
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        return list.stream();
     }
-
 
 
 }
