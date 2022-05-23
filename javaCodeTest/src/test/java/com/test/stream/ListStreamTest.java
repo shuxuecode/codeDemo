@@ -25,4 +25,18 @@ public class ListStreamTest {
         System.out.println(res);
     }
 
+    @Test
+    void t2(){
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        //Integer res = list.stream().filter(item -> item == 5).findFirst().get();
+
+        Integer res = list.stream().filter(item -> item == 5).findFirst().orElse(null);
+
+        System.out.println(res);
+    }
+
 }
