@@ -42,9 +42,6 @@ public class DateTimeTest {
         LocalDateTime localDateTime2 = from.toInstant().atZone(zoneId).toLocalDateTime();
         System.out.println(localDateTime2);
 
-        localDateTime2.with(TemporalAdjusters.firstDayOfMonth())
-
-
 
     }
 
