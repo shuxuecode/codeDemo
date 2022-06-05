@@ -3,7 +3,6 @@ package tool.test;
 import com.test.object.ObjDemo;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
 
 /**
  * @date 2022/4/25
