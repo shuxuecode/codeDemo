@@ -8,7 +8,12 @@
     <groupId>com.zsx</groupId>
     <artifactId>toolTest</artifactId>
     <version>1.0.0-demo</version>
-    <packaging>jar</packaging>
+
+    <modules>
+        <module>kryo-test</module>
+    </modules>
+
+    <packaging>pom</packaging>
 
     <name>toolTest-demo</name>
 
