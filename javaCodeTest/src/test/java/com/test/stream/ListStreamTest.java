@@ -39,4 +39,8 @@ public class ListStreamTest {
         System.out.println(res);
     }
 
+    @Test void t3(){
+
+    }
+
 }
