@@ -41,4 +41,35 @@ public class Test {
         System.out.println(JSON.toJSONString(map));
     }
 
+    @org.junit.jupiter.api.Test
+    void t2() {
+        String json = "{\"a\":\"a\",\"b\":\"b\",\"c\":\"c\"}";
+        System.out.println(JSON.toJSONString(json));
+
+
+        System.out.println(JSON.parseObject(json, JsonDemo.class));
+        System.out.println(JSON.parseObject(JSON.toJSONString(json), JsonDemo.class));
+    }
+
+    static class JsonDemo {
+        private String a;
+        private String b;
+
+        public String getA() {
+            return a;
+        }
+
+        public void setA(String a) {
+            this.a = a;
+        }
+
+        public String getB() {
+            return b;
+        }
+
+        public void setB(String b) {
+            this.b = b;
+        }
+    }
+
 }
