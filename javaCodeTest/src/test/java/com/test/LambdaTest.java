@@ -13,6 +13,12 @@ package com.test;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.IntStream;
+
 /**
  * @date 2022/6/20
  */
@@ -21,6 +27,34 @@ public class LambdaTest {
     @Test
     void t1() {
 
+        // 方法引用
+        //Lambda1::getId;
+
+        // 构造方法引用
+        Optional.ofNullable(null).orElseGet(ArrayList::new);
+
+
     }
 
+}
+
+class Lambda1 {
+    private int id;
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
