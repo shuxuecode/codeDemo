@@ -14,6 +14,7 @@ package com.test;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -34,8 +35,31 @@ public class LambdaTest {
         Optional.ofNullable(null).orElseGet(ArrayList::new);
 
 
+        // 静态方法引用
+        ArrayList<Integer> list = new ArrayList<>();
+        list.forEach(System.out::println);
+
+        Collections.sort(list, Integer::compare);
+
+
+        //    实例方法引用
+        LambdaTest lambdaTest = new LambdaTest();
+        Integer integer = Optional.ofNullable(123).map(lambdaTest::getInt).orElse(0);
+        Optional.ofNullable(123).map(this::getInt).orElse(0); // 如果方法在本身所在的类中，则可以直接用this
+
+        // 参数类方法引用
+        Optional.ofNullable(new Lambda1())
+                //.map(Lambda1::getId)
+                .map(Lambda1::getName)
+                .orElse(null);
     }
 
+    // 查询微信api
+
+
+    private int getInt(int num) {
+        return num;
+    }
 }
 
 class Lambda1 {
