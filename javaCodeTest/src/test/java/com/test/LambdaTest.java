@@ -54,7 +54,6 @@ public class LambdaTest {
                 .orElse(null);
     }
 
-    // 查询微信api
 
 
     private int getInt(int num) {
