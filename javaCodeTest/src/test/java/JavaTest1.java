@@ -1,5 +1,9 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @date 2022/6/20
  */
@@ -20,4 +24,8 @@ public class JavaTest1 {
         System.out.println(Integer.MAX_VALUE); // 2147483647  10位
     }
 
+    @Test
+    void t3(){
+
+    }
 }
