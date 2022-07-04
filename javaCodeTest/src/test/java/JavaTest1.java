@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,6 +27,11 @@ public class JavaTest1 {
 
     @Test
     void t3(){
+        System.out.println(Double.parseDouble("12.5"));
 
+        BigDecimal bigDecimal = new BigDecimal(Double.parseDouble("12.5")).multiply(BigDecimal.valueOf(100));
+        bigDecimal = bigDecimal.setScale(0, BigDecimal.ROUND_HALF_UP);
+        int intValue = bigDecimal.intValue();
+        System.out.println(intValue);
     }
 }

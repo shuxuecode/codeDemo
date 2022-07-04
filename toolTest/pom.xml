@@ -12,6 +12,7 @@
     <modules>
         <module>kryo-test</module>
         <module>joda-time</module>
+        <module>jwt-test</module>
     </modules>
 
     <packaging>pom</packaging>
