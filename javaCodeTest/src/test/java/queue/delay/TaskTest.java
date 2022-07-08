@@ -1,11 +1,8 @@
 package queue.delay;
 
-import com.sun.tools.corba.se.idl.StringGen;
 import org.junit.jupiter.api.Test;
 
-import java.security.PublicKey;
 import java.util.concurrent.DelayQueue;
-import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TaskTest {
 
-    public static DelayQueue<DelayTask<String>> delayQueue = new DelayQueue<>();
+    public static DelayQueue<DelayTask<TaskDemo>> delayQueue = new DelayQueue<>();
 
     @Test
     void t1() {
@@ -25,11 +22,11 @@ public class TaskTest {
         while (true) {
 
             try {
-                DelayTask<String> take = delayQueue.take();
+                DelayTask<TaskDemo> take = delayQueue.take();
                 if (take != null) {
                     // 拿到业务数据
-
-                    String task = take.getTask();
+                    TaskDemo taskDemo = take.getTask();
+                    taskDemo.getName();
 
                 }
 
