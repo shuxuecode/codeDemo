@@ -4,7 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @date 2022/5/13
@@ -40,7 +44,28 @@ public class ListStreamTest {
     }
 
     @Test void t3(){
+        // 默认使用ForkJoinPool.commonPool()
+        IntStream.range(1,10).parallel().forEach(item -> {
+            System.out.println(Thread.currentThread()); // Thread[ForkJoinPool.commonPool-worker-1,5,main]
+        });
+    }
+
+    @Test void t4(){
+        ForkJoinPool forkJoinPool = new ForkJoinPool(4);
+        ForkJoinTask<String> task = forkJoinPool.submit(() -> {
+            return "test";
+        });
+
+        try {
+            String res = task.get();
+            System.out.println(res);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
 
     }
+
 
 }
