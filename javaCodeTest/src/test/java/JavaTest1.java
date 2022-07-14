@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @date 2022/6/20
@@ -33,5 +34,15 @@ public class JavaTest1 {
         bigDecimal = bigDecimal.setScale(0, BigDecimal.ROUND_HALF_UP);
         int intValue = bigDecimal.intValue();
         System.out.println(intValue);
+    }
+
+    @Test void t4(){
+        int hashCode = UUID.randomUUID().toString().hashCode();
+        if (hashCode<0) {
+            hashCode = -hashCode;
+        }
+        System.out.println(Long.valueOf(hashCode));
+        String format = String.format("%015d", hashCode);
+        System.out.println(Long.valueOf(format));
     }
 }
