@@ -29,7 +29,8 @@ public class TaskTest {
             taskDemo.setName("延迟" + i + "秒");
 
 
-            DelayTask<TaskDemo> taskDemoDelayTask = new DelayTask<>(taskDemo, i * 1000);
+            //DelayTask<TaskDemo> taskDemoDelayTask = new DelayTask<>(taskDemo, i * 1000);
+            DelayTask<TaskDemo> taskDemoDelayTask = new DelayTask<>(taskDemo, 50);
 
             //delayQueue.put(taskDemoDelayTask);
             //delayQueue.offer(taskDemoDelayTask);
