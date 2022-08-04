@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -93,5 +94,13 @@ public class JavaTest1 {
 
     @Test void t8(){
         System.out.println(Long.valueOf(""));
+    }
+
+    @Test void t9(){
+        BigDecimal bigDecimal = new BigDecimal(100);
+        BigDecimal multiply = new BigDecimal("6.2").multiply(bigDecimal).setScale(0, RoundingMode.DOWN);
+        System.out.println(multiply);
+        System.out.println(multiply.toString());
+        System.out.println(multiply.toPlainString());
     }
 }
