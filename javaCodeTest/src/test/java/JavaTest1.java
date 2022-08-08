@@ -97,10 +97,14 @@ public class JavaTest1 {
     }
 
     @Test void t9(){
-        BigDecimal bigDecimal = new BigDecimal(100);
-        BigDecimal multiply = new BigDecimal("6.2").multiply(bigDecimal).setScale(0, RoundingMode.DOWN);
+        BigDecimal bigDecimal = new BigDecimal(10000);
+        BigDecimal multiply = new BigDecimal("12").multiply(bigDecimal).setScale(0, RoundingMode.DOWN);
         System.out.println(multiply);
         System.out.println(multiply.toString());
         System.out.println(multiply.toPlainString());
+
+        Integer num = 120000;
+        Integer num2 = multiply.intValueExact();
+        System.out.println(num.equals(num2));
     }
 }
