@@ -86,17 +86,20 @@ public class JavaTest1 {
         }
     }
 
-    @Test void t7(){
+    @Test
+    void t7() {
         System.out.println(new Date());
         System.out.println(LocalDateTime.now().getHour());
         System.out.println(LocalDateTime.of(2022, 7, 18, 24, 0).getHour()); //java.time.DateTimeException: Invalid value for HourOfDay (valid values 0 - 23): 24
     }
 
-    @Test void t8(){
+    @Test
+    void t8() {
         System.out.println(Long.valueOf(""));
     }
 
-    @Test void t9(){
+    @Test
+    void t9() {
         BigDecimal bigDecimal = new BigDecimal(10000);
         BigDecimal multiply = new BigDecimal("12").multiply(bigDecimal).setScale(0, RoundingMode.DOWN);
         System.out.println(multiply);
@@ -106,5 +109,16 @@ public class JavaTest1 {
         Integer num = 120000;
         Integer num2 = multiply.intValueExact();
         System.out.println(num.equals(num2));
+    }
+
+    @Test
+    void t10() {
+        System.out.println(3 << 1);
+        System.out.println(3 << 2);
+        System.out.println(3 << 3);
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i + " : " + (i << 1) + "  " + (i * 2));
+        }
     }
 }
