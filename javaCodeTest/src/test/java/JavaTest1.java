@@ -1,3 +1,5 @@
+import com.test.demo.Demo;
+import com.zsx.Person;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -9,11 +11,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-<<<<<<< HEAD
-=======
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -126,9 +125,6 @@ public class JavaTest1 {
             System.out.println(i + " : " + (i << 1) + "  " + (i * 2));
         }
     }
-<<<<<<< HEAD
-=======
-
     @Test
     void t11() {
         long startTime = System.nanoTime();
@@ -157,6 +153,32 @@ public class JavaTest1 {
     }
 
     @Test
-    void t12() {}
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
+    void t12() {
+
+        Person person1 = new Person(1, "a");
+        Person person2 = new Person(2, "ab");
+        Person person3 = new Person(3, "abc");
+        Person person4 = new Person(4, "abcd");
+        Person person5 = new Person(5, "abcde");
+
+        ArrayList<Person> list = new ArrayList<>();
+        list.add(person1);
+        list.add(person2);
+        list.add(person3);
+        list.add(person4);
+        list.add(person5);
+
+        System.out.println(list);
+
+        Person person = list.get(2);
+
+        list.add(0, person);
+
+        System.out.println(list);
+
+        list.remove(3);
+
+        System.out.println(list);
+
+    }
 }
