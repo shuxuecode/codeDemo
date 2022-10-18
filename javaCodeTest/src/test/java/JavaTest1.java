@@ -1,5 +1,6 @@
 import com.test.demo.Demo;
 import com.zsx.Person;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -7,6 +8,8 @@ import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -125,6 +128,7 @@ public class JavaTest1 {
             System.out.println(i + " : " + (i << 1) + "  " + (i * 2));
         }
     }
+
     @Test
     void t11() {
         long startTime = System.nanoTime();
@@ -152,7 +156,7 @@ public class JavaTest1 {
 
     }
 
-    @Test
+    @RepeatedTest(value = 10000)
     void t12() {
 
         Person person1 = new Person(1, "a");
@@ -170,15 +174,30 @@ public class JavaTest1 {
 
         System.out.println(list);
 
-        Person person = list.get(2);
+        {
+            //Person person = list.get(2);
+            //
+            //list.add(0, person);
+            //
+            //System.out.println(list);
+            //
+            //list.remove(3);
+            //
+            //System.out.println(list);
+        }
 
-        list.add(0, person);
+        {
+            //for (int i = 2; i > 0; i--) {
+            //    Collections.swap(list, i, i - 1);
+            //}
+            //System.out.println(list);
+        }
 
-        System.out.println(list);
-
-        list.remove(3);
-
-        System.out.println(list);
+        {
+            // 仅替换，不移动
+            list.set(0, list.set(2, list.get(0)));
+            System.out.println(list);
+        }
 
     }
 }
