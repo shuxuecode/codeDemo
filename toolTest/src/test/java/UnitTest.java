@@ -11,14 +11,11 @@ import java.util.HashMap;
 public class UnitTest {
 
     @Test
-<<<<<<< HEAD
-=======
     void t2() {
         String str = (String) null;
         System.out.println(str);
     }
     @Test
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
     void t1() {
         Demo demo = new Demo();
         demo.setNum(123);

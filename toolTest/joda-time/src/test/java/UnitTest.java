@@ -11,8 +11,6 @@ import java.util.Date;
 public class UnitTest {
 
     @Test
-<<<<<<< HEAD
-=======
     void t3(){
         LocalDateTime localDateTime = LocalDateTime.now().withMillisOfDay(0);
 
@@ -23,7 +21,6 @@ public class UnitTest {
         System.out.println(localDateTime);
     }
     @Test
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
     void t2(){
         LocalDate localDate = LocalDate.now();
         System.out.println(localDate.toDate());

@@ -13,11 +13,12 @@
         <module>kryo-test</module>
         <module>joda-time</module>
         <module>jwt-test</module>
+        <module>okhttp</module>
     </modules>
 
     <packaging>pom</packaging>
 
-    <name>toolTest-demo</name>
+    <name>toolTest</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,15 +41,12 @@
         </dependency>
 
         <dependency>
-<<<<<<< HEAD
-=======
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
         </dependency>
 
         <dependency>
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
@@ -60,6 +58,8 @@
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+
+
 
     </dependencies>
 

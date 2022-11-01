@@ -2,13 +2,8 @@ package tool.guava;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-<<<<<<< HEAD
-=======
 import com.google.common.collect.ImmutableList;
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
 import com.google.common.collect.Lists;
-import com.test.demo.Demo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -21,8 +16,6 @@ public class ListsTest {
 
 
     @Test
-<<<<<<< HEAD
-=======
     void t2(){
         ImmutableList<String> list = ImmutableList.of("a", "b");
 
@@ -40,7 +33,6 @@ public class ListsTest {
     }
 
     @Test
->>>>>>> 71be69ab5cf45e083419c9e7cae2d1848cbc4e3b
     void t1() {
         ArrayList<Demo> list = new ArrayList<>();
         list.add(new Demo(1, "a"));
