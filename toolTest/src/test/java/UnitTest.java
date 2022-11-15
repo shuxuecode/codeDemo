@@ -1,14 +1,52 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
+import com.zsx.demo.Demo;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * @author
  * @date 2022/4/26
  */
 public class UnitTest {
+
+    @Test void t4(){
+        ArrayList<@Nullable Demo> list = Lists.newArrayList();
+        list.add(new Demo(2));
+        list.add(new Demo(5));
+        list.add(new Demo(1));
+        list.add(new Demo(4));
+        list.add(new Demo(3));
+
+        ArrayList<Demo> resultList = list.stream().map(item -> {
+            if (item.getNum() > 3) {
+                return null;
+            }
+            return item;
+        }).collect(Collectors.collectingAndThen(
+                Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Demo::getNum))), ArrayList::new));
+
+        System.out.println(JSON.toJSONString(resultList));
+    }
+
+    @Test
+    void t3(){
+        Map<String, Object> map = new HashMap<>();
+
+        List<Demo> key = (List<Demo>) map.get("key");
+        //List<Demo> key = (List<Demo>) map.getOrDefault("key", new ArrayList<>());
+
+        System.out.println(key);
+    }
 
     @Test
     void t2() {
@@ -37,6 +75,13 @@ public class UnitTest {
 
     static class Demo {
         private int num;
+
+        public Demo() {
+        }
+
+        public Demo(int num) {
+            this.num = num;
+        }
 
         public int getNum() {
             return num;
