@@ -1,9 +1,11 @@
 package tool.guava;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.HashBiMap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
@@ -21,6 +23,11 @@ import java.util.Map;
  */
 public class MapsTest {
 
+
+    @Test void t4(){
+        ImmutableMap<String, String> map = ImmutableMap.of("a", "b23");
+        System.out.println(JSON.toJSONString(map));
+    }
 
     @Test void t3(){
         BiMap< String,  String> biMap = HashBiMap.create();
