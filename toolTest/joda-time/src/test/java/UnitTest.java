@@ -1,5 +1,6 @@
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -9,6 +10,22 @@ import java.util.Date;
  * @date 2022/6/14
  */
 public class UnitTest {
+
+
+    @Test void t4(){
+        LocalDate day1 = LocalDate.now();
+
+        LocalDate day2 = LocalDate.parse("20221127100000", DateTimeFormat.forPattern("yyyyMMddHHmmss"));
+
+        System.out.println(day1);
+        System.out.println(day2);
+
+        System.out.println(day1.equals(day2));
+        System.out.println(day1.compareTo(day2));
+
+        System.out.println("20221127100000".substring(0, 8));
+        System.out.println(day1.toString(DateTimeFormat.forPattern("yyyyMMdd")));
+    }
 
     @Test
     void t3(){
