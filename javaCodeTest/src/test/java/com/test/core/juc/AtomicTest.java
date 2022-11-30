@@ -2,12 +2,15 @@ package com.test.core.juc;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @date 2022/11/28
  */
 public class AtomicTest {
+
 
     @Test
     void t1() {
