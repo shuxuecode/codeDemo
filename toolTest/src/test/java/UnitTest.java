@@ -1,5 +1,6 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.zsx.demo.Demo;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -7,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +21,27 @@ import java.util.stream.Collectors;
  */
 public class UnitTest {
 
-    @Test void t4(){
+    @Test
+    void t5() {
+        String json = "{\"issue\":\"abc\",\"ext\":{\"outBizId\":\"123\",\"code\":\"world_cup\"},\"count\":11000,\"list\":[{\"a\":\"b\"}]}";
+
+        System.out.println(JSONPath.contains(json, "$['issue']"));
+
+        Object extract = JSONPath.extract(json, "$['issue']");
+        System.out.println(extract);
+
+        System.out.println(JSONPath.extract(json, "$['ext']['outBizId']"));
+
+        System.out.println((Integer) JSONPath.extract(json, "$['count']"));
+        System.out.println(Long.valueOf(JSONPath.extract(json, "$['count']").toString()));
+
+        System.out.println(JSONPath.extract(json, "$['list'][0]['a']"));
+        System.out.println(JSONPath.extract(json, "$['list'][1]['a']"));
+    }
+
+
+    @Test
+    void t4() {
         ArrayList<@Nullable Demo> list = Lists.newArrayList();
         list.add(new Demo(2));
         list.add(new Demo(5));
@@ -39,7 +61,7 @@ public class UnitTest {
     }
 
     @Test
-    void t3(){
+    void t3() {
         Map<String, Object> map = new HashMap<>();
 
         List<Demo> key = (List<Demo>) map.get("key");
@@ -52,7 +74,12 @@ public class UnitTest {
     void t2() {
         String str = (String) null;
         System.out.println(str);
+
+        Date date = new Date();
+        System.out.println(date);
+        System.out.println(new Date(date.getTime() + 2000));
     }
+
     @Test
     void t1() {
         Demo demo = new Demo();
