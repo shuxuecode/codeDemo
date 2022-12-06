@@ -21,6 +21,14 @@ import java.util.stream.Collectors;
  */
 public class UnitTest {
 
+
+
+    @Test void t6(){
+        String str = "009121,222,345678";
+        System.out.println(str.lastIndexOf(","));
+        System.out.println(str.substring(10+1));
+    }
+
     @Test
     void t5() {
         String json = "{\"issue\":\"abc\",\"ext\":{\"outBizId\":\"123\",\"code\":\"world_cup\"},\"count\":11000,\"list\":[{\"a\":\"b\"}]}";
