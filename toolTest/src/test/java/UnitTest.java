@@ -3,6 +3,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.zsx.demo.Demo;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
@@ -22,6 +24,15 @@ import java.util.stream.Collectors;
 public class UnitTest {
 
 
+    @Test void t7(){
+        HashSet<String> set = new HashSet<>();
+        for (int i = 0; i < 100; i++) {
+            set.add(RandomStringUtils.randomAlphanumeric(6));
+        }
+
+        System.out.println(set.size());
+        set.forEach(System.out::println);
+    }
 
     @Test void t6(){
         String str = "009121,222,345678";
