@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
@@ -199,5 +200,25 @@ public class JavaTest1 {
             System.out.println(list);
         }
 
+    }
+
+
+    @Test
+    void t13() {
+        String str = "123,124,125,1";
+        int index = str.lastIndexOf(",");
+        if (index == -1) {
+
+        } else {
+            String substr = str.substring(0, index);
+            System.out.println(substr);
+
+            String[] split = substr.split(",");
+            Arrays.stream(split).forEach(System.out::println);
+
+            for (int i = 0; i < split.length && i < 99; i++) {
+                System.out.println(i);
+            }
+        }
     }
 }
