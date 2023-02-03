@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -220,5 +221,13 @@ public class JavaTest1 {
                 System.out.println(i);
             }
         }
+    }
+
+    @Test
+    void t14(){
+        for (int i = 0; i < 20; i++) {
+            System.out.println(new Random().nextInt(10));
+        }
+
     }
 }
