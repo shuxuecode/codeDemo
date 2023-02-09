@@ -1,3 +1,4 @@
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
@@ -23,6 +24,17 @@ import java.util.stream.Collectors;
  */
 public class UnitTest {
 
+
+    @Test void t8(){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("1");
+
+        ArrayList<String> strings = Lists.newArrayList(list);
+        list.clear();
+        System.out.println(list);
+        System.out.println(strings);
+
+    }
 
     @Test void t7(){
         HashSet<String> set = new HashSet<>();

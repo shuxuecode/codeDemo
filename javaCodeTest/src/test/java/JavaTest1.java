@@ -19,6 +19,8 @@ import java.util.UUID;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @date 2022/6/20
@@ -228,6 +230,20 @@ public class JavaTest1 {
         for (int i = 0; i < 20; i++) {
             System.out.println(new Random().nextInt(10));
         }
+
+    }
+
+    @Test
+    void t15(){
+        Pattern pattern = Pattern.compile(".*Service");
+
+        Matcher matcher = pattern.matcher("abService");
+
+        System.out.println(matcher);
+
+        System.out.println(matcher.matches());
+
+        System.out.println(Pattern.compile(".*Service").matcher("abServicer").matches());
 
     }
 }
