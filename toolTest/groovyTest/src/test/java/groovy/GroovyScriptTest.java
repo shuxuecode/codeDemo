@@ -1,4 +1,4 @@
-package tool.groovy;
+package groovy;
 
 import groovy.lang.GroovyShell;
 import groovy.lang.Script;

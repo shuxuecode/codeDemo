@@ -15,6 +15,7 @@
         <module>jwt-test</module>
         <module>okhttp</module>
         <module>spring</module>
+        <module>groovyTest</module>
     </modules>
 
     <packaging>pom</packaging>
