@@ -26,4 +26,22 @@ class GroovyUtilsTest {
         GroovyUtils.invoke(script.toString(), "test", null);
     }
 
+    @Test
+    void t2() {
+        String str = "package groovy\n" +
+                "def check(int score) {\n" +
+                "            if (0 <= score && score < 10) {\n" +
+                "                return \"小于10\";\n" +
+                "            } else if (10 <= score && score < 100) {\n" +
+                "                return \"大于10\";\n" +
+                "            } else {\n" +
+                "                return \"默认\";\n" +
+                "            }\n" +
+                "        }";
+
+
+        Object res = GroovyUtils.invoke(str.toString(), "check", 500);
+        System.out.println(res);
+    }
+
 }
