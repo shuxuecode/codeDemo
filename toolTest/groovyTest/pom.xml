@@ -10,7 +10,7 @@
         <version>1.0.0-demo</version>
     </parent>
 
-    <artifactId>groovyTest</artifactId>
+    <artifactId>groovy-Test</artifactId>
 
     <version>1.0.0-demo</version>
 
