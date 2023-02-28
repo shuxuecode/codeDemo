@@ -16,13 +16,15 @@ static void main(String[] args) {
 
 
 class User {
-    private String name;
+    private String name
 
-    String getName() {
-        return name
-    }
+// 可以不写get set
 
-    void setName(String name) {
-        this.name = name
-    }
+//    String getName() {
+//        return name
+//    }
+//
+//    void setName(String name) {
+//        this.name = name
+//    }
 }
