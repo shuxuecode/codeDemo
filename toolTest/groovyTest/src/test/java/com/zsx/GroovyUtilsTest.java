@@ -1,5 +1,6 @@
 package com.zsx;
 
+import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,6 +42,15 @@ class GroovyUtilsTest {
 
 
         Object res = GroovyUtils.invoke(str.toString(), "check", 500);
+        System.out.println(res);
+    }
+
+    @Test
+    void t3() {
+        String str = "def calculate(int a, int b, String c) {\n" +
+                "    return c + (a + b)\n" +
+                "}";
+        String res = GroovyUtils.invoke(str, "calculate", new Object[]{1, 2, "res="});
         System.out.println(res);
     }
 
