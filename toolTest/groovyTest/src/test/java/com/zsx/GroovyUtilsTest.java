@@ -1,7 +1,14 @@
 package com.zsx;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+import groovy.lang.Binding;
+import groovy.lang.GroovyShell;
+import groovy.lang.Script;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,4 +61,35 @@ class GroovyUtilsTest {
         System.out.println(res);
     }
 
+    @Test
+    void t4() {
+        String str = "import java.util.Date;" +
+                "    return c + (a + b) + new Date()" +
+                "";
+        str = "import com.google.common.collect.Lists;" +
+                "            if (0 <= score && score < 10) {\n" +
+                "                return \"小于10\";\n" +
+                "            } else if (10 <= score && score < 100) {\n" +
+                //" return Maps.newConcurrentMap();" +
+                " return Lists.newArrayList(1,2,3); " +
+                //"                return \"大于10\";\n" +
+                "            } else {\n" +
+                "                return \"默认\";\n" +
+                "            }\n";
+        GroovyShell shell = new GroovyShell();
+        Script script = shell.parse(str);
+
+        HashMap<@Nullable Object, @Nullable Object> map = Maps.newHashMap();
+        //map.put("a", 1);
+        //map.put("b", 2);
+        //map.put("c", "");
+        map.put("score", 20);
+        Binding binding = new Binding(map);
+        script.setBinding(binding);
+
+        Object res = script.run();
+
+        System.out.println(res);
+
+    }
 }
