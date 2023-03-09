@@ -246,4 +246,13 @@ public class JavaTest1 {
         System.out.println(Pattern.compile(".*Service").matcher("abServicer").matches());
 
     }
+
+
+    @Test
+    void t16(){
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.getTime());
+        System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
+
+    }
 }
