@@ -253,6 +253,7 @@ public class JavaTest1 {
         Calendar calendar = Calendar.getInstance();
         System.out.println(calendar.getTime());
         System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
+        System.out.println(calendar.get(Calendar.MINUTE));
 
     }
 }
