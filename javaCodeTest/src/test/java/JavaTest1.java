@@ -226,7 +226,7 @@ public class JavaTest1 {
     }
 
     @Test
-    void t14(){
+    void t14() {
         for (int i = 0; i < 20; i++) {
             System.out.println(new Random().nextInt(10));
         }
@@ -234,7 +234,7 @@ public class JavaTest1 {
     }
 
     @Test
-    void t15(){
+    void t15() {
         Pattern pattern = Pattern.compile(".*Service");
 
         Matcher matcher = pattern.matcher("abService");
@@ -249,11 +249,21 @@ public class JavaTest1 {
 
 
     @Test
-    void t16(){
+    void t16() {
         Calendar calendar = Calendar.getInstance();
         System.out.println(calendar.getTime());
         System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
         System.out.println(calendar.get(Calendar.MINUTE));
 
+    }
+
+    @Test
+    void t17() {
+        Random random = new Random();
+        for (int i = 0; i < 100; i++) {
+            int num = random.nextInt(500);
+            int res = num > 100 ? num / 100 * 100 : num / 10 * 10;
+            System.out.println(num + " --> " + res);
+        }
     }
 }
