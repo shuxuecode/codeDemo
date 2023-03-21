@@ -16,6 +16,7 @@
         <module>okhttp</module>
         <module>spring</module>
         <module>groovyTest</module>
+        <module>common</module>
     </modules>
 
     <packaging>pom</packaging>

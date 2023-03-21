@@ -1,6 +1,5 @@
 /**
  *
- * @author shuxuezhao.zsx
  * @date 2023/2/25
  */
 static void main(String[] args) {
