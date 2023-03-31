@@ -3,6 +3,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -24,6 +26,17 @@ import java.util.stream.Collectors;
 public class UnitTest {
 
 
+    @Test void t9(){
+        TreeMap<Comparable, @Nullable Object> treeMap = Maps.newTreeMap();
+        treeMap.put("A", 1);
+        treeMap.put("C", 1);
+        treeMap.put("#", 1);
+        treeMap.put("B", 1);
+
+        for (Map.Entry<Comparable, Object> en : treeMap.entrySet()) {
+            System.out.println(en.getKey());
+        }
+    }
     @Test void t8(){
         ArrayList<String> list = new ArrayList<>();
         list.add("1");
