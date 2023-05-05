@@ -115,6 +115,10 @@ public class ListTest extends GroovyTestCase {
 
     }
 
+    void test10() {
+        assert [1,2,3] * 3 == [1,2,3,1,2,3,1,2,3]
+        assert [1,2,3].multiply(2) == [1,2,3,1,2,3]
+    }
 
 }
 
