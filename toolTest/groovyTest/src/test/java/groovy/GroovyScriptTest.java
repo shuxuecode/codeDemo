@@ -108,4 +108,11 @@ public class GroovyScriptTest {
     }
 
 
+    @Test
+    void t5() {
+        GroovyShell shell = new GroovyShell();
+        Script parse = shell.parse("a/b");
+        parse.run();
+    }
+
 }
