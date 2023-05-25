@@ -13,17 +13,53 @@ package com.test;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
  * @date 2022/6/20
  */
 public class LambdaTest {
+
+
+    @Test
+    void t2(){
+// 分组统计
+        ArrayList<Demo> list = new ArrayList<>();
+        list.add(new Demo("a"));
+        list.add(new Demo("a"));
+        list.add(new Demo("a"));
+        list.add(new Demo("a"));
+        list.add(new Demo("b"));
+        list.add(new Demo("b"));
+        list.add(new Demo("c"));
+        list.add(new Demo("c"));
+        list.add(new Demo("c"));
+
+        Map<String, Long> collect = list.stream().collect(Collectors.groupingBy(Demo::getName, Collectors.counting()));
+        for (Map.Entry<String, Long> entry : collect.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
+    }
+
+
+    class Demo {
+        String name;
+
+        public Demo(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
 
     @Test
     void t1() {
