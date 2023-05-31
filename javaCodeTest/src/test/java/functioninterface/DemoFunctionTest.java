@@ -48,4 +48,15 @@ class DemoFunctionTest {
     }
 
 
+    @Test
+    void t4(){
+        Supplier<Integer> a = () -> 1+2;
+        int c = a.get() + 3; // a 只有在这一行使用时才会计算
+        System.out.println(c);
+    }
+
+    @Test
+    void t5(){
+
+    }
 }
