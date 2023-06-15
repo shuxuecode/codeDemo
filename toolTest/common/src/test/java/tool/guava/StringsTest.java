@@ -12,6 +12,19 @@ public class StringsTest {
 
 
 
+    @Test void t4(){
+
+        String str = "123\n" +
+                "456\n" +
+                "789";
+
+        String[] split = str.trim().split("\n");
+        for (String s : split) {
+            System.out.println(s);
+        }
+
+    }
+
     @Test void t3(){
         String format = Strings.lenientFormat("测试%s 数字%s  空是 %s  日期%s", "abc", 123, null, new Date());
         System.out.println(format);
