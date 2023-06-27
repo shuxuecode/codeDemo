@@ -18,5 +18,18 @@ public class GuavaTest {
         System.out.println(rateLimiter.acquire(1)); // 0.992319
         System.out.println(rateLimiter.acquire(1)); // 0.995078
 
+        double rate = rateLimiter.getRate();
+        System.out.println(rate);
+
+        rateLimiter.setRate(5);
+
+        System.out.println(rateLimiter.acquire(1));
+        System.out.println(rateLimiter.acquire(1));
+        System.out.println(rateLimiter.acquire(1));
+        System.out.println(rateLimiter.acquire(1));
+
+        rate = rateLimiter.getRate();
+        System.out.println(rate);
+
     }
 }
