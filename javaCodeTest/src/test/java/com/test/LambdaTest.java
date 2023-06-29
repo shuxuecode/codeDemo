@@ -23,6 +23,78 @@ import java.util.stream.IntStream;
 public class LambdaTest {
 
 
+
+    @Test
+    void t3() {
+
+        Lambda1 lambda1 = new Lambda1(1, "a");
+        Lambda1 lambda2 = new Lambda1(2, "a");
+        Lambda1 lambda3 = new Lambda1(3, "a");
+        Lambda1 lambda4 = new Lambda1(4, "a");
+        Lambda1 lambda5 = new Lambda1(5, "a");
+        Lambda1 lambda6 = new Lambda1(6, "a");
+
+        List<Lambda1> subList1 = new ArrayList<>();
+        subList1.add(lambda1);
+        subList1.add(lambda2);
+        subList1.add(lambda3);
+        subList1.add(lambda4);
+
+        List<Lambda1> subList2 = new ArrayList<>();
+        subList2.add(lambda5);
+        subList2.add(lambda6);
+
+        List<List<Lambda1>> list = new ArrayList<>();
+        list.add(subList1);
+        list.add(subList2);
+
+        List<Lambda1> resultList = list.stream()
+                .filter(item -> {
+                    for (Lambda1 lambda11 : item) {
+                        if (lambda11.getId() == 3) {
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .findFirst().orElse(null);
+
+        if (resultList != null) {
+            resultList.stream().forEach(System.out::println);
+        }
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        System.out.println();
+
+        List<Lambda1> filteredList = filterList(list);
+        if (filteredList != null) {
+            filteredList.stream().forEach(System.out::println);
+        }
+
+    }
+
+
+    public List<Lambda1> filterList(List<List<Lambda1>> list) {
+        for (List<Lambda1> lambda1List : list) {
+            for (Lambda1 lambda11 : lambda1List) {
+                if (lambda11.getId() == 3) {
+
+                    lambda1List = lambda1List.stream().filter(i -> {
+                        return i.getId() <= 2;
+                    }).collect(Collectors.toList());
+
+                    return lambda1List;
+                }
+            }
+        }
+        return null;
+    }
+
+
+
     @Test
     void t2(){
 // 分组统计
@@ -101,6 +173,15 @@ class Lambda1 {
     private int id;
     private String name;
 
+
+    public Lambda1() {
+    }
+
+    public Lambda1(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -115,5 +196,13 @@ class Lambda1 {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Lambda1{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
