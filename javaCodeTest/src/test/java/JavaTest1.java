@@ -266,4 +266,32 @@ public class JavaTest1 {
             System.out.println(num + " --> " + res);
         }
     }
+
+    @Test
+    void t18() {
+        List<String> priorityList = new ArrayList<>();
+        priorityList.add("1");
+        priorityList.add("2");
+        priorityList.add("3");
+        priorityList.add("4");
+        priorityList.add("5");
+
+
+        List<String> list = new ArrayList<>();
+        list.add("7");
+        list.add("4");
+        list.add("9");
+        list.add("1");
+
+        // 根据配置优先级进行排序
+        Collections.sort(list,(a, b) -> {
+            int indexA = priorityList.indexOf(a);
+            int indexB = priorityList.indexOf(b);
+            indexA = indexA == -1 ? 99 : indexA;
+            indexB = indexB == -1 ? 99 : indexB;
+            return Integer.compare(indexA, indexB);
+        });
+
+        list.stream().forEach(System.out::println);
+    }
 }
