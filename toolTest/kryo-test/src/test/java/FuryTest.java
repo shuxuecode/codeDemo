@@ -20,6 +20,9 @@ public class FuryTest {
 
 
         Fury fury = Fury.builder().withLanguage(Language.JAVA).build();
+
+        fury.register(Demo.class);
+        fury.register(Demo.class);
         fury.register(Demo.class);
 
         byte[] bytes = fury.serialize(demo);
