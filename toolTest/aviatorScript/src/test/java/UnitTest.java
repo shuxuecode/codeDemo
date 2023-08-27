@@ -3,6 +3,7 @@ import com.googlecode.aviator.AviatorEvaluatorInstance;
 import com.googlecode.aviator.Expression;
 import com.sun.xml.internal.ws.util.ReadAllStream;
 import com.zsx.aviator.functions.AddFunction;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.engine.discovery.ClasspathResourceSelector;
 import org.junit.platform.engine.support.descriptor.ClasspathResourceSource;
@@ -44,7 +45,7 @@ public class UnitTest {
     }
 
 
-    @Test
+    @RepeatedTest(value = 5)
     void 脚本文本() {
         // 定义脚本
         String script = "println(\"hello world!!!\");";
