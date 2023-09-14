@@ -5,14 +5,13 @@ public class JunitTest {
 
 
     public static void main(String[] args) {
-        TestRunner.run(T.class);
+        TestRunner.run(new T());
     }
 
-    public class T extends TestCase {
-
-        {
-            System.out.println("123");
-        }
-    }
 }
 
+class T extends TestCase {
+    public T() {
+        System.out.println("123");
+    }
+}
