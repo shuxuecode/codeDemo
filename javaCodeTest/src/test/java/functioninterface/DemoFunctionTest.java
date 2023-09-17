@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,6 +36,11 @@ class DemoFunctionTest {
         String res = function.apply("a");
 
         System.out.println(res);
+
+        // 输入String，输出Integer
+        Function<String, Integer> fun = x -> Integer.parseInt(x);
+        Integer r = fun.apply("123");
+        System.out.println(r);
     }
 
     @Test
@@ -65,6 +71,10 @@ class DemoFunctionTest {
 
     @Test
     void t5() {
+        /*
+        Consumer接口是一个消费型的接口，只要实现它的accept方法，就能作为消费者来输出信息。
+        lambda、方法引用都可以是一个Consumer类型，因此他们可以作为forEach的参数，用来协助Stream输出信息。
+         */
         Consumer<String> consumer = (a) -> System.out.println(a);
 
         consumer.accept("hello world!!!");
@@ -82,4 +92,39 @@ class DemoFunctionTest {
 
         consumer2.accept(123);
     }
+
+    @Test
+    void t6() {
+        Predicate<String> predicate = (i) -> i != null;
+
+        boolean test = predicate.test("1");
+        System.out.println(test);
+
+        System.out.println(predicate.test(null));
+    }
+
+    @Test
+    void t7() {
+        // andThen
+        Function<Integer, Integer> fun1 = a -> a + 2;
+        Function<Integer, Integer> fun2 = a -> a * 2;
+        // (1 + 2) * 2
+        Function<Integer, Integer> fun3 = fun1.andThen(fun2);
+        Integer res = fun3.apply(1);
+        System.out.println(res);
+    }
+
+    @Test
+    void t8() {
+        Function<Integer, Integer> fun1 = a -> a + 2;
+        Function<Integer, Integer> fun2 = a -> a * 2;
+        // (1 * 2) + 2
+        Function<Integer, Integer> fun3 = fun1.compose(fun2);
+        Integer res = fun3.apply(1);
+        System.out.println(res);
+    }
+
+
+
+    
 }
