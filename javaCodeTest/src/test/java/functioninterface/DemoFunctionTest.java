@@ -2,6 +2,7 @@ package functioninterface;
 
 import org.junit.jupiter.api.Test;
 
+import javax.lang.model.element.VariableElement;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
@@ -125,6 +126,15 @@ class DemoFunctionTest {
     }
 
 
+    <T, R> R demo(Function<T, R> fun, T t) {
+        return fun.apply(t);
+    }
+
+    @Test
+    void t9() {
+        Integer res = demo(a -> a + 2, 5);
+        System.out.println(res);
+    }
 
 
 }
