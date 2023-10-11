@@ -15,6 +15,7 @@ static void main(String[] args) {
     println(user.name)
 
     println(new MyDate())
+    println(new MyDate().getTime())
 
     String str = "{\"1\": {\"2\": \"3\", \"4\": \"5\"}, \"6\": {\"7\": \"8\", \"9\": \"0\"}, \"a\": \"b\"}"
 
