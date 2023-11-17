@@ -3,7 +3,9 @@ package com.test.stream;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
@@ -17,7 +19,7 @@ public class ListStreamTest {
 
 
     @Test
-    void t1(){
+    void t1() {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
@@ -30,7 +32,7 @@ public class ListStreamTest {
     }
 
     @Test
-    void t2(){
+    void t2() {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
@@ -43,14 +45,16 @@ public class ListStreamTest {
         System.out.println(res);
     }
 
-    @Test void t3(){
+    @Test
+    void t3() {
         // 默认使用ForkJoinPool.commonPool()
-        IntStream.range(1,10).parallel().forEach(item -> {
+        IntStream.range(1, 10).parallel().forEach(item -> {
             System.out.println(Thread.currentThread()); // Thread[ForkJoinPool.commonPool-worker-1,5,main]
         });
     }
 
-    @Test void t4(){
+    @Test
+    void t4() {
         ForkJoinPool forkJoinPool = new ForkJoinPool(4);
         ForkJoinTask<String> task = forkJoinPool.submit(() -> {
             return "test";
@@ -65,6 +69,15 @@ public class ListStreamTest {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Test
+    void t5() {
+        StringJoiner joiner = new StringJoiner("-");
+
+        Arrays.asList("1", "2", "3").stream().forEach(joiner::add);
+
+        System.out.println(joiner.toString());
     }
 
 
