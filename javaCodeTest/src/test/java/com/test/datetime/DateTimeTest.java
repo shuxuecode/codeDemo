@@ -2,6 +2,7 @@ package com.test.datetime;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +23,17 @@ public class DateTimeTest {
     void test() {
 
         
+    }
+
+
+    @Test
+    void t2() {
+
+        LocalDate groupCreateTime = new Date(1704856229000L).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        System.out.println(groupCreateTime);
+        long days = ChronoUnit.DAYS.between(groupCreateTime, LocalDate.now());
+        System.out.println(days);
+
     }
 
     @Test
