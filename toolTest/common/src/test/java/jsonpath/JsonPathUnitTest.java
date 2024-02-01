@@ -30,7 +30,8 @@ public class JsonPathUnitTest extends GroovyTestCase {
         String str = "{\"ext\":{\"test\":\"true\"},\"id\":123,\"name\":\"demo\"}";
 
 
-        Object read = JsonPath.read(JSON.toJSONString(str), "$.id");
+        //Object read = JsonPath.read(JSON.toJSONString(str), "$.id");
+        Object read = JsonPath.read(str, "$.id");
         System.out.println(read);
     }
 

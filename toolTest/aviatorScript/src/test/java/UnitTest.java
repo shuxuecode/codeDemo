@@ -1,11 +1,9 @@
 import com.googlecode.aviator.AviatorEvaluator;
 import com.googlecode.aviator.AviatorEvaluatorInstance;
 import com.googlecode.aviator.Expression;
-import com.sun.xml.internal.ws.util.ReadAllStream;
 import com.zsx.aviator.functions.AddFunction;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.engine.discovery.ClasspathResourceSelector;
 import org.junit.platform.engine.support.descriptor.ClasspathResourceSource;
 
 import java.io.IOException;
