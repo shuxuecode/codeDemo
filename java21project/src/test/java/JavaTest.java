@@ -9,7 +9,7 @@ public class JavaTest {
     @Test
     public void t() {
 
-        
+
 
     }
 
