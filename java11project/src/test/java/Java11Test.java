@@ -1,6 +1,10 @@
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -60,7 +64,7 @@ public class Java11Test {
     @Test
     void t5() {
         List<String> list = Arrays.asList("a", "b");
-        //之前想集合转对应的数组很麻烦，要么用迭代；要么用Stream流，现在可以这样
+        // 之前想集合转对应的数组很麻烦，要么用迭代；要么用Stream流，现在可以这样
         String[] array = list.toArray(String[]::new);
     }
 
@@ -72,8 +76,8 @@ public class Java11Test {
 
     @Test
     void t7() {
-        //var可以用于修饰Lambda局部变量
-        //在Java 10中引入的var来进行类型推断。在Java 10中它不能用于修饰Lambda表达式的入参，其实对于一个Lambda表达式来说它入参的类型其实是可以根据上下文推断出来的。
+        // var可以用于修饰Lambda局部变量
+        // 在Java 10中引入的var来进行类型推断。在Java 10中它不能用于修饰Lambda表达式的入参，其实对于一个Lambda表达式来说它入参的类型其实是可以根据上下文推断出来的。
         Arrays.asList("", "").stream()
                 .filter((var item) -> !item.isBlank())
                 .collect(Collectors.toList());
@@ -116,6 +120,52 @@ public class Java11Test {
 
     @Test
     void t11() {
+        // 编译器会自动推断出类型
+        var list = List.of("a", "b");
+        list.forEach(System.out::println);
+
+        list.stream().forEach((var item) -> {
+            System.out.println(item);
+        });
+    }
+
+
+    @Test
+    void t12() {
+        // 集合加强
+        // 自 Java 9 开始，Jdk 里面为集合（List/ Set/ Map）都添加了 of 和 copyOf 方法，它们两个都用来创建不可变的集合，来看下它们的使用和区别。
+        // 注意：使用of和copyOf创建的集合为不可变集合，不能进行添加、删除、替换、排序等操作，不然会报 java.lang.UnsupportedOperationException 异常。
+
+        var list = List.of("a", "b");
+        var copy = List.copyOf(list);
+
+        // copy.add("c"); // java.lang.UnsupportedOperationException
+
+        copy.forEach(System.out::println);
+    }
+
+
+    @Test
+    void t13() throws IOException, InterruptedException {
+        //  HTTP Client api
+        // 自 Java 9 开始，Jdk 里面为 HttpClient 增加了新的 api，来看下它们的使用和区别。
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(URI.create("http://www.baidu.com"))
+                .GET()
+                .build();
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        // 同步
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        //     异步
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .thenAccept(System.out::println);
+
     }
 
 }
