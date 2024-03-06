@@ -4,11 +4,14 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
+import com.google.common.collect.Lists;
 import com.jayway.jsonpath.JsonPath;
 import groovy.util.GroovyTestCase;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @date 2023/5/19
@@ -67,5 +70,28 @@ public class JsonPathUnitTest extends GroovyTestCase {
         System.out.println(JSONPath.eval(jsonArray, "$[1]"));
         System.out.println(JSONPath.eval(jsonArray, "$[1].a"));
         System.out.println(JSONPath.eval(jsonArray, "$[1].b"));
+    }
+
+
+    public void test05() {
+
+        TT tt = new TT();
+        tt.name = "test";
+        tt.list = Lists.newArrayList("\"1\"", "2", "3");
+
+        System.out.println(JSON.toJSONString(tt));
+
+
+        String json = "{\"list\":\"[\"1\"]\",\"name\":\"test\"}";
+
+        TT ttt = JSONObject.parseObject(json, TT.class);
+        System.out.println(JSON.toJSONString(ttt));
+
+
+    }
+
+    public static class TT {
+        public String name;
+        public List<String> list;
     }
 }
