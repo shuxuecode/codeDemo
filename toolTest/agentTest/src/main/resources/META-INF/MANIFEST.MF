@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Premain-Class: com.zsx.test.agent.MyAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
