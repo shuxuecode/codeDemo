@@ -1,7 +1,6 @@
 package com.zsx.test.agent;
 
 
-
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
@@ -147,7 +146,9 @@ public class MyClassTransformer implements ClassFileTransformer {
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
 
-        if ("com/zsx/test/agent/MyTest".equals(className)) {
+        // System.out.println("className:" + className);
+
+        if ("com/zsx/jartest/RunMain".equals(className)) {
 
             ClassReader classReader = new ClassReader(classfileBuffer);
 

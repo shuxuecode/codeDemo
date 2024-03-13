@@ -20,6 +20,7 @@
         <module>hutool</module>
         <module>aviatorScript</module>
         <module>agentTest</module>
+        <module>jarTest</module>
     </modules>
 
     <packaging>pom</packaging>
