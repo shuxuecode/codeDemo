@@ -19,7 +19,7 @@ public class SpringBeanUtilsTest {
         demoVO.setAge(null);
         /*
         上面这种包装类型转基本类型就会报异常：
-            org.springframework.beans.FatalBeanException: Could not copy property 'age' from source to target; nested exception is java.lang.IllegalArgumentException
+org.springframework.beans.FatalBeanException: Could not copy property 'age' from source to target; nested exception is java.lang.IllegalArgumentException
         这个就是使用BeanUtils.copyProperties的坑
          */
 
