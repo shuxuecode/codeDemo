@@ -31,7 +31,7 @@ public class TinyPinYinTest extends GroovyTestCase {
         Collator collator = Collator.getInstance(Locale.CHINA);
 
         //List<String> res = list.stream().sorted((a, b) -> collator.compare(a, b)).collect(Collectors.toList());
-        //
+
         //System.out.println(res);
 
         String[] array = list.toArray(new String[0]);

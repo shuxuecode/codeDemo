@@ -66,14 +66,14 @@ public class UnitTest {
 
     @Test
     void t5() {
-        String json = "{\"issue\":\"abc\",\"ext\":{\"outBizId\":\"123\",\"code\":\"world_cup\"},\"count\":11000,\"list\":[{\"a\":\"b\"}]}";
+        String json = "{\"issue\":\"abc\",\"ext\":{\"id\":\"123\",\"code\":\"world_cup\"},\"count\":11000,\"list\":[{\"a\":\"b\"}]}";
 
         System.out.println(JSONPath.contains(json, "$['issue']"));
 
         Object extract = JSONPath.extract(json, "$['issue']");
         System.out.println(extract);
 
-        System.out.println(JSONPath.extract(json, "$['ext']['outBizId']"));
+        System.out.println(JSONPath.extract(json, "$['ext']['id']"));
 
         System.out.println((Integer) JSONPath.extract(json, "$['count']"));
         System.out.println(Long.valueOf(JSONPath.extract(json, "$['count']").toString()));
