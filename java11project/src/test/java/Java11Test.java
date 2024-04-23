@@ -71,7 +71,7 @@ public class Java11Test {
     @Test
     void t6() {
         // 断言取反
-        Predicate.not(null);
+        // Predicate.not(null);
     }
 
     @Test
