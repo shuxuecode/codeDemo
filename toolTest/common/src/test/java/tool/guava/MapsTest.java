@@ -27,6 +27,11 @@ public class MapsTest {
     @Test void t4(){
         ImmutableMap<String, String> map = ImmutableMap.of("a", "b23");
         System.out.println(JSON.toJSONString(map));
+
+        Map<String, String> map2 = ImmutableMap.of("a", "b23");
+        System.out.println(JSON.toJSONString(map2));
+        map2.put("bb", "b23");  // 报错 java.lang.UnsupportedOperationException
+        System.out.println(JSON.toJSONString(map2));
     }
 
     @Test void t3(){
