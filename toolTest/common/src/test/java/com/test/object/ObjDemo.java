@@ -7,6 +7,9 @@ public class ObjDemo {
     private String name;
     private Integer age;
 
+
+    //get set
+
     public String getName() {
         return name;
     }

@@ -3,7 +3,6 @@ package com.test;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import tool.guava.MapsTest;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

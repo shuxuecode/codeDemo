@@ -10,8 +10,8 @@ import java.util.stream.Stream;
 public class ProgressBarDemo {
 
     public static void main(String[] args) {
-        char a = '0';
-        char b = '8';
+        char a = '_';
+        char b = '=';
 
         int total = 100;
 

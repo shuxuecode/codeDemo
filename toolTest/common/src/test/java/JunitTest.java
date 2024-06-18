@@ -6,13 +6,13 @@ public class JunitTest {
 
     // todo xue
     public static void main(String[] args) {
-        TestRunner.run(new T());
+        TestRunner.run(new Ttt());
     }
 
 }
 
-class T extends TestCase {
-    public T() {
+class Ttt extends TestCase {
+    public Ttt() {
         System.out.println("123");
     }
 }

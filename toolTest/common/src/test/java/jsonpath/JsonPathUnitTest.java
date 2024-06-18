@@ -7,7 +7,6 @@ import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.jayway.jsonpath.JsonPath;
 import groovy.util.GroovyTestCase;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.Collection;
 import java.util.Date;

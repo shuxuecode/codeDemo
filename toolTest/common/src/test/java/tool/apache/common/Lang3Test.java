@@ -15,10 +15,12 @@ public class Lang3Test {
 
     @Test void t1(){
         ImmutablePair<String, String> pair = ImmutablePair.of("a", "b");
+        System.out.println(pair);
         pair.getLeft();
         pair.getRight();
 
         ImmutableTriple<String, Integer, Date> triple = ImmutableTriple.of("name", 18, new Date());
+        System.out.println(triple);
         String left = triple.getLeft();
         Integer middle = triple.getMiddle();
         Date right = triple.getRight();

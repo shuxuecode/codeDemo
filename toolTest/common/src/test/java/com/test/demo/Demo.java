@@ -24,8 +24,7 @@ public class Demo {
     }
 
     @Test
-    @RepeatedTest(value = 5)
-        // 标识方法可重复执行
+    @RepeatedTest(value = 5) // 标识方法可重复执行
     void t1() {
         System.out.println("t1");
     }
