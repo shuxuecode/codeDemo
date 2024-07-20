@@ -3,9 +3,13 @@ import com.zsx.Person;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -68,7 +72,7 @@ public class JavaTest1 {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(Calendar.HOUR_OF_DAY, -1); // 24小时制
-        //calendar.add(Calendar.HOUR, 1); // 12小时制
+        // calendar.add(Calendar.HOUR, 1); // 12小时制
         Date date = calendar.getTime();
         System.out.println(date);
 
@@ -101,7 +105,7 @@ public class JavaTest1 {
     void t7() {
         System.out.println(new Date());
         System.out.println(LocalDateTime.now().getHour());
-        System.out.println(LocalDateTime.of(2022, 7, 18, 24, 0).getHour()); //java.time.DateTimeException: Invalid value for HourOfDay (valid values 0 - 23): 24
+        System.out.println(LocalDateTime.of(2022, 7, 18, 24, 0).getHour()); // java.time.DateTimeException: Invalid value for HourOfDay (valid values 0 - 23): 24
     }
 
     @Test
@@ -154,7 +158,7 @@ public class JavaTest1 {
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 5L, TimeUnit.SECONDS, new SynchronousQueue<>());
 
-        //threadPoolExecutor.allowCoreThreadTimeOut(true);
+        // threadPoolExecutor.allowCoreThreadTimeOut(true);
         boolean b = threadPoolExecutor.allowsCoreThreadTimeOut();
         System.out.println(b); // 默认false
 
@@ -179,22 +183,22 @@ public class JavaTest1 {
         System.out.println(list);
 
         {
-            //Person person = list.get(2);
+            // Person person = list.get(2);
             //
-            //list.add(0, person);
+            // list.add(0, person);
             //
-            //System.out.println(list);
+            // System.out.println(list);
             //
-            //list.remove(3);
+            // list.remove(3);
             //
-            //System.out.println(list);
+            // System.out.println(list);
         }
 
         {
-            //for (int i = 2; i > 0; i--) {
+            // for (int i = 2; i > 0; i--) {
             //    Collections.swap(list, i, i - 1);
             //}
-            //System.out.println(list);
+            // System.out.println(list);
         }
 
         {
@@ -284,7 +288,7 @@ public class JavaTest1 {
         list.add("1");
 
         // 根据配置优先级进行排序
-        Collections.sort(list,(a, b) -> {
+        Collections.sort(list, (a, b) -> {
             int indexA = priorityList.indexOf(a);
             int indexB = priorityList.indexOf(b);
             indexA = indexA == -1 ? 99 : indexA;
@@ -294,4 +298,55 @@ public class JavaTest1 {
 
         list.stream().forEach(System.out::println);
     }
+
+
+    @Test
+    void t19() {
+
+        try {
+            Class<?> clz = Class.forName("com.zsx.util.DataUtil");
+
+            Method method = clz.getMethod("getData");
+
+            Object obj = clz.getDeclaredConstructor().newInstance();
+
+            Object invoke = method.invoke(obj);
+
+            System.out.println(invoke);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    @Test
+    void t20() {
+        // 原始时间字符串
+        String originalTimeString = "2024-07-08 14:14:49:819";
+
+        // 定义输入格式
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+
+        // 解析时间字符串
+        LocalDateTime time = LocalDateTime.parse(originalTimeString, inputFormatter);
+
+        // 定义输出格式
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("HHmmssSSS");
+
+        // 格式化时间
+        String formattedTime = time.format(outputFormatter);
+
+        // 输出结果
+        System.out.println(formattedTime);
+        System.out.println(Integer.parseInt(formattedTime));
+    }
+
+
 }
