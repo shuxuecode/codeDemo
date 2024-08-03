@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -348,5 +349,12 @@ public class JavaTest1 {
         System.out.println(Integer.parseInt(formattedTime));
     }
 
-
+    @Test
+    void t21() {
+        LocalDateTime now = LocalDateTime.now();
+        now = now.withMinute(0).withSecond(0).withNano(0);
+        System.out.println(now);
+        System.out.println(now.minusHours(2));
+        System.out.println(now.minus(Duration.ofHours(2)));
+    }
 }
