@@ -1,5 +1,6 @@
 package tool.apache.common;
 
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.junit.jupiter.api.Test;
@@ -26,5 +27,11 @@ public class Lang3Test {
         Date right = triple.getRight();
 
         System.out.println();
+    }
+
+    @Test void t2(){
+        System.out.println(BooleanUtils.toBoolean("y"));
+        System.out.println(BooleanUtils.toBoolean("Y"));
+        System.out.println(BooleanUtils.toBooleanObject("null"));
     }
 }
