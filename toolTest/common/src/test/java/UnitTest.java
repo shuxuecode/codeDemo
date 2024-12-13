@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.zsx.tool.GzipUtil;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
@@ -18,12 +19,29 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author
  * @date 2022/4/26
  */
 public class UnitTest {
+
+
+
+    @Test void t10(){
+        StringBuilder str = new StringBuilder();
+        IntStream.range(1, 1000).forEach(item -> str.append(item));
+        String string = str.toString();
+        System.out.println(string);
+        System.out.println(string.length());
+
+        String compress = GzipUtil.compress(string);
+        System.out.println(compress);
+        System.out.println(compress.length());
+        String uncompress = GzipUtil.uncompress(compress);
+        System.out.println(uncompress);
+    }
 
 
     @Test void t9(){

@@ -35,5 +35,14 @@
             <version>2.5.17</version>
             <type>pom</type>
         </dependency>
+
+
+        <!-- Zstd 是由 Facebook 开发的一种快速无损压缩算法，它不仅提供了优秀的压缩比，而且在压缩和解压缩速度上也表现出色 -->
+        <dependency>
+            <groupId>com.github.luben</groupId>
+            <artifactId>zstd-jni</artifactId>
+            <version>1.5.6-3</version>
+        </dependency>
+
     </dependencies>
 </project>

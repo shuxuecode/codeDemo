@@ -21,7 +21,7 @@ public class GzipUtil {
      * @param sourceStr
      * @return
      */
-    static String compress(String sourceStr) {
+    public static String compress(String sourceStr) {
         if (sourceStr == null || sourceStr.length() == 0) {
             return sourceStr;
         }
@@ -41,7 +41,7 @@ public class GzipUtil {
      * @param zipStr
      * @return
      */
-    static String uncompress(String zipStr) {
+    public static String uncompress(String zipStr) {
         if (zipStr == null) {
             return null;
         }
