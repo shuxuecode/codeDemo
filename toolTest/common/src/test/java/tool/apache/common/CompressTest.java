@@ -16,7 +16,10 @@ import java.util.zip.ZipFile;
 public class CompressTest extends GroovyTestCase {
 
 
-    public void test() {
+    /**
+     * 压缩
+     */
+    public void testYaSuo() {
 
         String userHomePath = System.getProperty("user.home");
         System.out.println(userHomePath);
@@ -44,9 +47,42 @@ public class CompressTest extends GroovyTestCase {
             e.printStackTrace();
         }
 
-
     }
 
+    // todo zsx 目录压缩
+    public void testYaSuoDir() {
+        String userHomePath = System.getProperty("user.home");
+        System.out.println(userHomePath);
+        File outputFile = new File(userHomePath + "/tmp/testZip.zip");
+        File inputFile = new File(userHomePath + "/tmp/1");
+        if (!inputFile.exists()) {
+            inputFile.mkdir();
+        }
+
+        try (
+                ZipArchiveOutputStream zipOutput = new ZipArchiveOutputStream(new FileOutputStream(outputFile));
+        ) {
+            File[] files = inputFile.listFiles();
+            for (File file : files) {
+                ZipArchiveEntry entry = new ZipArchiveEntry(file.getName());
+                zipOutput.putArchiveEntry(entry);
+                try (FileInputStream fis = new FileInputStream(file)) {
+                    byte[] buffer = new byte[1024];
+                    int len;
+                    while ((len = fis.read(buffer)) != -1) {
+                        zipOutput.write(buffer, 0, len);
+                    }
+                }
+                zipOutput.closeArchiveEntry();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 解压
+     */
     public void testJieYa() {
         String userHomePath = System.getProperty("user.home");
         System.out.println(userHomePath);
@@ -77,7 +113,6 @@ public class CompressTest extends GroovyTestCase {
                     }
 
                 }
-
 
             }
         } catch (IOException e) {
