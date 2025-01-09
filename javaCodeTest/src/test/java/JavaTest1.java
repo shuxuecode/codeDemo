@@ -358,4 +358,22 @@ public class JavaTest1 {
         System.out.println(now.minus(Duration.ofHours(2)));
 
     }
+
+    @Test
+    void t22() {
+
+        if (t221() || t222()) {
+            System.out.println("命中");
+        }
+
+    }
+
+    private static boolean t221() {
+        System.out.println("第一个boolean");
+        return true;
+    }
+    private static boolean t222() {
+        System.out.println("第二个boolean");
+        return true;
+    }
 }
