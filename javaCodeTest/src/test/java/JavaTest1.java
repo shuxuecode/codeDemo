@@ -11,21 +11,14 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @date 2022/6/20
@@ -375,5 +368,47 @@ public class JavaTest1 {
     private static boolean t222() {
         System.out.println("第二个boolean");
         return true;
+    }
+
+
+
+    @Test
+    void t23() {
+
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+
+        List<String> collect = list.stream().map(item -> {
+            if (item.equals("2")) {
+                return null;
+            }
+            return item + "1";
+        })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        System.out.println(collect);
+
+    }
+
+
+
+    @Test
+    void t24() throws InterruptedException {
+
+        CompletableFuture.runAsync(() -> {
+            System.out.println("hello");
+
+            CompletableFuture.runAsync(() -> {
+                System.out.println("world");
+            });
+        });
+
+
+
+        TimeUnit.SECONDS.sleep(5);
     }
 }
