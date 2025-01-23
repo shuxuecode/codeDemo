@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zsx.tool.GzipUtil;
+import org.apache.commons.compress.compressors.gzip.GzipUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,11 @@ import java.util.stream.IntStream;
  */
 public class UnitTest {
 
+
+
+    @Test void t11(){
+
+    }
 
 
     @Test void t10(){
