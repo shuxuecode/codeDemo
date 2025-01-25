@@ -52,5 +52,12 @@
             <version>1.26.2</version>
         </dependency>
 
+        <!-- 异步化编程 工具类 -->
+        <dependency>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>3.1.8</version>
+        </dependency>
+
     </dependencies>
 </project>
