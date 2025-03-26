@@ -33,6 +33,12 @@ public class ZstdUtil {
     }
 
 
+    /**
+     * 压缩
+     *
+     * @param sourceStr
+     * @return
+     */
     public static byte[] compress(String sourceStr) {
 
         byte[] bytes = sourceStr.getBytes(StandardCharsets.UTF_8);
@@ -44,6 +50,13 @@ public class ZstdUtil {
         return compressedData;
     }
 
+
+    /**
+     * 解压
+     *
+     * @param compressedData
+     * @return
+     */
     public static String uncompress(byte[] compressedData) {
 
         byte[] uncompressedData = new byte[(int) Zstd.getFrameContentSize(compressedData)];

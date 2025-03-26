@@ -7,10 +7,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.engine.support.descriptor.ClasspathResourceSource;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.HashMap;
 
 public class UnitTest {
 
+    @Test
+    public void test2() {
+        LocalDateTime now = LocalDateTime.now().minusDays(1);
+        System.out.println(now);
+        LocalDateTime startDate = now;
+        if (30 > 1) {
+            startDate = startDate.minusDays(30 - 1);
+        }
+
+        System.out.println(startDate);
+    }
 
     @Test
     void test自定义函数() {
