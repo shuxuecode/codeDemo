@@ -415,6 +415,9 @@ public class JavaTest1 {
     @Test
     void t25() {
 
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+
+        System.out.println(availableProcessors);
 
     }
 }

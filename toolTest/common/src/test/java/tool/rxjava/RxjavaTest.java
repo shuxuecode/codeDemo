@@ -1,6 +1,9 @@
 package tool.rxjava;
 
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.observers.TestObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import org.junit.jupiter.api.Test;
 
@@ -28,11 +31,13 @@ public class RxjavaTest {
                 });
 
         // 订阅Observable，并处理接收到的数据
-        observable.subscribe(
+        Disposable complete = observable.subscribe(
                 result -> System.out.println(result),// 接收到的数据
                 error -> error.printStackTrace(), // 错误处理
                 () -> System.out.println("complete")// 完成通知
         );
+
+
 
         // 主线程可以继续执行其他任务，无需等待Observable完成
 
@@ -46,5 +51,26 @@ public class RxjavaTest {
 
     }
 
+
+    @Test
+    void test02() {
+
+        Single<Integer> single = Single.fromCallable(() -> {
+            TimeUnit.SECONDS.sleep(1L);
+            return 1;
+        }).subscribeOn(Schedulers.io());
+
+
+        TestObserver<Integer> testObserver = single.test();
+
+        testObserver.awaitDone(3, TimeUnit.SECONDS);
+
+        testObserver
+                .assertComplete()
+                .assertNoErrors()
+                .assertValue(res -> res == 1);
+
+
+    }
 
 }
