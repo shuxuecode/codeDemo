@@ -24,6 +24,34 @@ import java.util.Map;
 public class MapsTest {
 
 
+    @Test void t5(){
+
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "1");
+
+        HashMap<String, String> newMap = Maps.newHashMap(map);
+
+        System.out.println(newMap);
+        System.out.println();
+        map.put("b", "2");
+
+        System.out.println(map);
+        System.out.println(newMap);
+
+        System.out.println();
+
+        newMap.put("c", "3");
+
+        System.out.println(map);
+        System.out.println(newMap);
+
+
+        HashMap< Object,  Object> objectObjectHashMap = Maps.newHashMap();
+        objectObjectHashMap.put("666", null);
+
+        System.out.println(JSON.toJSONString(objectObjectHashMap));
+
+    }
     @Test void t4(){
         ImmutableMap<String, String> map = ImmutableMap.of("a", "b23");
         System.out.println(JSON.toJSONString(map));

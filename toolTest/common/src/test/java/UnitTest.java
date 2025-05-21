@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.zsx.demo.pojo.BBB;
+import com.zsx.demo.pojo.CCC;
+import com.zsx.demo.pojo.DDD;
 import com.zsx.tool.GzipUtil;
 import org.apache.commons.compress.compressors.gzip.GzipUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -29,13 +32,31 @@ import java.util.stream.IntStream;
 public class UnitTest {
 
 
+    @Test
+    void t11() {
 
-    @Test void t11(){
+        CCC ccc = new CCC();
+
+        BBB bbb = new BBB();
+        bbb.setName("zsx");
+        bbb.setAge("23");
+        bbb.setContent("content");
+
+        ccc.setA(Lists.newArrayList(bbb));
+
+
+        System.out.println(JSON.toJSONString(ccc));
+
+        DDD ddd = new DDD();
+        ddd.setB(ccc.getA());
+
+        System.out.println(JSON.toJSONString(ddd));
 
     }
 
 
-    @Test void t10(){
+    @Test
+    void t10() {
         StringBuilder str = new StringBuilder();
         IntStream.range(1, 1000).forEach(item -> str.append(item));
         String string = str.toString();
@@ -50,7 +71,8 @@ public class UnitTest {
     }
 
 
-    @Test void t9(){
+    @Test
+    void t9() {
         TreeMap<Comparable, @Nullable Object> treeMap = Maps.newTreeMap();
         treeMap.put("A", 1);
         treeMap.put("C", 1);
@@ -61,7 +83,9 @@ public class UnitTest {
             System.out.println(en.getKey());
         }
     }
-    @Test void t8(){
+
+    @Test
+    void t8() {
         ArrayList<String> list = new ArrayList<>();
         list.add("1");
 
@@ -72,7 +96,8 @@ public class UnitTest {
 
     }
 
-    @Test void t7(){
+    @Test
+    void t7() {
         HashSet<String> set = new HashSet<>();
         for (int i = 0; i < 100; i++) {
             set.add(RandomStringUtils.randomAlphanumeric(6));
@@ -82,10 +107,11 @@ public class UnitTest {
         set.forEach(System.out::println);
     }
 
-    @Test void t6(){
+    @Test
+    void t6() {
         String str = "009121,222,345678";
         System.out.println(str.lastIndexOf(","));
-        System.out.println(str.substring(10+1));
+        System.out.println(str.substring(10 + 1));
     }
 
     @Test
