@@ -14,8 +14,14 @@ import java.util.HashSet;
 public class UnitTest {
 
     @Test void t5(){
-
+        if (LocalDateTime.now().isAfter(LocalDateTime.now())) {
+            System.out.println("after");
+        } else {
+            System.out.println("before");
+        }
     }
+
+
     @Test void t4(){
         LocalDate day1 = LocalDate.now();
 
