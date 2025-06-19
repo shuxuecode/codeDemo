@@ -15,4 +15,14 @@ public class StringTest {
             System.out.println(s);
         }
     }
+
+    @Test void t2(){
+        String str = "a\\b\\c";
+        String[] split = str.split("\\\\");
+        for (int i = 0; i < split.length; i++) {
+            System.out.println(split[i]);
+        }
+    }
+
+
 }
