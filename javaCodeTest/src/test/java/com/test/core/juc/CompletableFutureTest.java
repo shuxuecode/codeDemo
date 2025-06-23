@@ -16,7 +16,7 @@ public class CompletableFutureTest {
     void t1() {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 
-            if (1==1) {
+            if (1 == 1) {
                 throw new RuntimeException("123");
             }
             return "hello world";
@@ -32,6 +32,18 @@ public class CompletableFutureTest {
         }
 
         System.out.println(s);
+    }
+
+
+    @Test
+    void t2() throws ExecutionException, InterruptedException {
+        CompletableFuture<Void> hello = CompletableFuture.runAsync(() -> {
+            System.out.println("hello");
+        });
+
+        Void unused = hello.get();
+
+        System.out.println(unused);
     }
 
 }
