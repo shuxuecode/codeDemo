@@ -22,6 +22,13 @@ public class SpringUtilTest {
     }
 
 
+    @Test
+    public void test1() {
+        String s = "123";
+        String md5DigestAsHex = DigestUtils.md5DigestAsHex(s.getBytes());
+        System.out.println(md5DigestAsHex);
+    }
+
 
 
 
