@@ -49,8 +49,8 @@ public class SpringUtilTest {
         System.out.println("replace('world', 'Java'): " + StringUtils.replace(originalStr, "world", "Java")); // hello Java
 
         // 截取字符串
-        //System.out.println("substringBefore(' ', originalStr): " + StringUtils.substringBefore(originalStr, " ")); // hello
-        //System.out.println("substringAfter(' ', originalStr): " + StringUtils.substringAfter(originalStr, " ")); // world
+        System.out.println("substringBefore(' ', originalStr): " + org.apache.commons.lang3.StringUtils.substringBefore(originalStr, " ")); // hello
+        System.out.println("substringAfter(' ', originalStr): " + org.apache.commons.lang3.StringUtils.substringAfter(originalStr, " ")); // world
 
         // 字符串拼接
         List<String> list = Collections.singletonList("item1");
@@ -62,9 +62,10 @@ public class SpringUtilTest {
         // 其他操作
         System.out.println("capitalize(nonEmptyStr): " + StringUtils.capitalize(nonEmptyStr)); // Hello
         System.out.println("uncapitalize(nonEmptyStr): " + StringUtils.uncapitalize(nonEmptyStr)); // hELLO
-        //System.out.println("strip('  hello  '): " + StringUtils.strip("  hello  ")); // hello
-        //System.out.println("stripStart('abc', 'ab'): " + StringUtils.stripStart("abc", "ab")); // c
-        //System.out.println("stripEnd('abc', 'bc'): " + StringUtils.stripEnd("abc", "bc")); // a
+
+        System.out.println("strip('  hello  '): " + org.apache.commons.lang3.StringUtils.strip("  hello  ")); // hello
+        System.out.println("stripStart('abc', 'ab'): " + org.apache.commons.lang3.StringUtils.stripStart("abc", "ab")); // c
+        System.out.println("stripEnd('abc', 'bc'): " + org.apache.commons.lang3.StringUtils.stripEnd("abc", "bc")); // a
 
         // todo zsx
     }
