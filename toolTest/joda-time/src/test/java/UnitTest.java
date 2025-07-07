@@ -1,4 +1,6 @@
 import com.google.common.collect.Sets;
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -12,6 +14,27 @@ import java.util.HashSet;
  * @date 2022/6/14
  */
 public class UnitTest {
+
+    @Test void t6(){
+        DateTime now = DateTime.now();
+        //            int year,
+        //            int monthOfYear,
+        //            int dayOfMonth,
+        //            int hourOfDay,
+        //            int minuteOfHour,
+        //            int secondOfMinute,
+        //            int millisOfSecond
+        DateTime dateTime = new DateTime(2025, 7, 15, 12, 12, 12, 0);
+
+        int a = Days.daysBetween(now, dateTime).getDays();
+        int b = Days.daysBetween(dateTime, now).getDays();
+
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(Math.abs(b));
+    }
+
 
     @Test void t5(){
         if (LocalDateTime.now().isAfter(LocalDateTime.now())) {

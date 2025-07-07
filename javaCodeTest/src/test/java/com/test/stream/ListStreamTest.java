@@ -2,6 +2,7 @@ package com.test.stream;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -78,6 +79,37 @@ public class ListStreamTest {
         Arrays.asList("1", "2", "3").stream().forEach(joiner::add);
 
         System.out.println(joiner.toString());
+    }
+
+    @Test
+    void t6() {
+
+        IntStream intStream = IntStream.rangeClosed(1, 5);
+
+        intStream
+                .parallel()
+                .forEach(item -> {
+                    //new Thread(() -> {
+                    //    try {
+                    //        Thread.sleep(1000L);
+                    //    } catch (InterruptedException e) {
+                    //    }
+                    //    System.out.println(LocalDateTime.now().toString() + " item = " + item);
+                    //}).start();
+                    try {
+                        Thread.sleep(1000L);
+                    } catch (InterruptedException e) {
+                    }
+                    System.out.println(LocalDateTime.now().toString() + " item = " + item);
+                });
+
+
+        try {
+            Thread.sleep(10000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 
