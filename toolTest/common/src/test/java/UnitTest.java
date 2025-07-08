@@ -2,12 +2,17 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zsx.demo.pojo.BBB;
 import com.zsx.demo.pojo.CCC;
 import com.zsx.demo.pojo.DDD;
 import com.zsx.tool.GzipUtil;
+import lombok.*;
 import org.apache.commons.compress.compressors.gzip.GzipUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -30,6 +35,41 @@ import java.util.stream.IntStream;
  * @date 2022/4/26
  */
 public class UnitTest {
+
+
+    @Test
+    void t12() throws JsonProcessingException {
+
+        AAA aaa = new AAA();
+        aaa.setName("zsx");
+        aaa.setAge("18");
+
+        System.out.println(JSON.toJSONString(aaa));
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writeValueAsString(aaa));
+
+        AAA aaa1 = objectMapper.readValue(objectMapper.writeValueAsString(aaa), AAA.class);
+        System.out.println(aaa1);
+
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @ToString
+    static class AAA {
+        private String name;
+        private String age;
+
+        @JSONField(serialize = false)  // 使用fastjson序列化时忽略
+        @JsonIgnore   // 使用jackson序列化时忽略该方法
+        public boolean isTest() {
+            return true;
+        }
+    }
 
 
     @Test
