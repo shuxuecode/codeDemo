@@ -20,4 +20,10 @@ RxJava 的核心思想是，数据（事件）的序列会在不同的时间点�
 - 多样化的操作符：一系列的操作符可供选择，用于对数据流进行变换和聚合，比如 map、filter 和 concat，这显著提升了编码的表现力和适应性。
 
 
+## 忽略序列化
 
+fastjson 的写法
+@JSONField(serialize = false)
+
+jackson 的写法
+@JsonIgnore
