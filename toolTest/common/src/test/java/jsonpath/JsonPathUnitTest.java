@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONPath;
 import com.google.common.collect.Lists;
 import com.jayway.jsonpath.JsonPath;
 import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 import java.util.Collection;
 import java.util.Date;
@@ -92,5 +93,13 @@ public class JsonPathUnitTest extends GroovyTestCase {
     public static class TT {
         public String name;
         public List<String> list;
+    }
+
+    @Test
+    public void test06() {
+        // todo zsx
+        String json = "{\"list\":\"[\"1\"]\",\"name\":\"test\"}";
+        TT ttt = JSONObject.parseObject(json, TT.class);
+        System.out.println(JSON.toJSONString(ttt));
     }
 }
