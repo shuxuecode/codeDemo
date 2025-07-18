@@ -1,8 +1,5 @@
 import com.google.common.collect.Sets;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
+import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +11,26 @@ import java.util.HashSet;
  * @date 2022/6/14
  */
 public class UnitTest {
+
+
+    @Test void t7() {
+
+
+        Period days = Period.days(2);
+
+        LocalDate localDate = LocalDate.now().plus(days);
+        System.out.println(localDate);
+
+
+        DateTime start = new DateTime("2023-10-01");
+        DateTime end = new DateTime("2023-10-05");
+
+        // 计算两个日期的差值（返回 Period 对象）
+        Period diff = new Period(start, end);
+        System.out.println(diff.getDays());
+
+    }
+
 
     @Test void t6(){
         DateTime now = DateTime.now();
