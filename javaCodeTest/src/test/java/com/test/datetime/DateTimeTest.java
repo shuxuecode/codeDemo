@@ -2,9 +2,7 @@ package com.test.datetime;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.*;
@@ -22,7 +20,32 @@ public class DateTimeTest {
     @Test
     void test() {
 
-        
+        LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
+
+        LocalDateTime localDateTime = now.plusDays(1).toLocalDate().atStartOfDay();
+
+        System.out.println(localDateTime.format(dateTimeFormatter));
+
+        LocalDateTime localDateTime1 = now.toLocalDate().plusDays(1).atTime(LocalTime.MIN);
+
+        System.out.println(localDateTime1.format(dateTimeFormatter));
+
+        LocalDateTime with = now.with(LocalTime.MAX);
+        System.out.println(with.format(dateTimeFormatter));
+
+        LocalDateTime zonedDateTime = now.toLocalDate().plusDays(1).atStartOfDay();
+
+
+
+        //long between = ChronoUnit.SECONDS.between(now, zonedDateTime);
+
+        LocalDateTime endTime = LocalDateTime.of(2025, 8, 13, 23, 59, 59);
+
+        long between = ChronoUnit.SECONDS.between(endTime, zonedDateTime);
+
+        System.out.println(between);
+
+
     }
 
 
