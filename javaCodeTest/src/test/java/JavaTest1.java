@@ -250,8 +250,9 @@ public class JavaTest1 {
     void t16() {
         Calendar calendar = Calendar.getInstance();
         System.out.println(calendar.getTime());
-        System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
-        System.out.println(calendar.get(Calendar.MINUTE));
+        System.out.println(calendar.get(Calendar.HOUR_OF_DAY)); // 当前小时
+        System.out.println(calendar.get(Calendar.MINUTE)); // 当前分钟
+        System.out.println(calendar.get(Calendar.SECOND)); // 当前秒
 
     }
 
@@ -347,14 +348,15 @@ public class JavaTest1 {
         LocalDateTime now = LocalDateTime.now();
         now = now.withMinute(0).withSecond(0).withNano(0);
         System.out.println(now);
-        System.out.println(now.minusHours(2));
-        System.out.println(now.minus(Duration.ofHours(2)));
+        System.out.println(now.minusHours(2)); // 减2小时
+        System.out.println(now.minus(Duration.ofHours(2))); // 减2小时
 
     }
 
     @Test
     void t22() {
-
+        // 如果命中其中一个，则命中
+        // 第二个方法不会执行
         if (t221() || t222()) {
             System.out.println("命中");
         }
@@ -390,7 +392,7 @@ public class JavaTest1 {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
-        System.out.println(collect);
+        System.out.println(collect); // [11, 31, 41]
 
     }
 
