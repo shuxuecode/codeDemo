@@ -422,4 +422,10 @@ public class JavaTest1 {
         System.out.println(availableProcessors);
 
     }
+
+    @Test
+    void t26() {
+
+    }
+
 }

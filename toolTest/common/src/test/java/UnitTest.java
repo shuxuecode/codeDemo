@@ -38,6 +38,21 @@ public class UnitTest {
 
 
     @Test
+    void t13() {
+        T13object t13object = new T13object();
+        System.out.println(JSON.toJSONString(t13object));
+        System.out.println(t13object.isFlag());
+        t13object.setFlag(true);
+        System.out.println(t13object.isFlag());
+    }
+    @Data
+    class T13object {
+        private boolean flag;
+    }
+
+
+
+    @Test
     void t12() throws JsonProcessingException {
 
         AAA aaa = new AAA();
