@@ -3,10 +3,15 @@ import com.zsx.Person;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
+import java.lang.management.ManagementFactory;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -367,11 +372,11 @@ public class JavaTest1 {
         System.out.println("第一个boolean");
         return true;
     }
+
     private static boolean t222() {
         System.out.println("第二个boolean");
         return true;
     }
-
 
 
     @Test
@@ -384,18 +389,17 @@ public class JavaTest1 {
         list.add("4");
 
         List<String> collect = list.stream().map(item -> {
-            if (item.equals("2")) {
-                return null;
-            }
-            return item + "1";
-        })
+                    if (item.equals("2")) {
+                        return null;
+                    }
+                    return item + "1";
+                })
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
         System.out.println(collect); // [11, 31, 41]
 
     }
-
 
 
     @Test
@@ -408,7 +412,6 @@ public class JavaTest1 {
                 System.out.println("world");
             });
         });
-
 
 
         TimeUnit.SECONDS.sleep(5);
@@ -424,8 +427,44 @@ public class JavaTest1 {
     }
 
     @Test
-    void t26() {
+    void t26() throws UnknownHostException, SocketException {
 
+        // 获取本机IP
+        InetAddress ip = InetAddress.getLocalHost();
+
+        System.out.println(ip);
+
+        // 获取网卡
+        NetworkInterface networkInterface = NetworkInterface.getByInetAddress(ip);
+
+        System.out.println(networkInterface);
+
+        if (networkInterface == null) {
+            return;
+        }
+
+        // 获取mac地址
+        byte[] mac = networkInterface.getHardwareAddress();
+
+        System.out.println(mac);
+
+        if (mac == null) {
+            return;
+        }
+        // mac地址处理
+        long id = (255L & (long) mac[mac.length - 2] | 65280L & (long) mac[mac.length - 1] << 8) >> 6;
+
+        System.out.println(id);
+
+    }
+
+    @Test
+    void t27() {
+        // 获取进程id
+        String name = ManagementFactory.getRuntimeMXBean().getName();
+        System.out.println(name); // 格式 12345@localhost
+        String pid = name.split("@")[0];
+        System.out.println(pid);
     }
 
 }
