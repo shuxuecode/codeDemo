@@ -4,7 +4,9 @@ package com.test.demo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -24,6 +26,18 @@ public class Demo {
         System.out.println(list.contains(a)); // true
 
         System.out.println(8899);
+
+        Set<Long> set = new HashSet<>();
+        set.add(2000L);
+        set.add(4000L);
+
+        int b = 2000;
+        long c = 2000L;
+
+        System.out.println(set.contains(2000)); // false
+        System.out.println(set.contains(b)); // false
+        System.out.println(set.contains(c)); // true
+
     }
 
 
