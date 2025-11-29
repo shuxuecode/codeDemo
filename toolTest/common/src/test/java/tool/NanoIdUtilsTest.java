@@ -30,13 +30,14 @@ public class NanoIdUtilsTest {
         //0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
         HashSet<String> set = new HashSet<>();
-        int count = 10000000;
-        count = 1000;
+        int count = 10_000_000;
+        count = 10_000;
+        count = 100;
 
         for (int i = 0; i < count; i++) {
-            String str = NanoIdUtils.randomNanoId(random, alphabet, 16);
+            String str = NanoIdUtils.randomNanoId(random, alphabet, 5);
             set.add(str);
-            //System.out.println(str);
+            System.out.println(str);
         }
 
         System.out.println(set.size());
